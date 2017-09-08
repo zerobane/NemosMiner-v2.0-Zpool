@@ -1,12 +1,12 @@
 . .\Include.ps1
 
-$Path = ".\Bin\NVIDIA-Alexis78\ccminer.exe"
-$Uri = "https://github.com/nemosminer/ccminer-Alexis78/releases/download/ccminer-alexis78/ccminer-alexis78-ms2013-cuda7.5.7z"
+$Path = ".\Bin\NVIDIA-Alexis78cuda8.0\ccminer_x11gost.exe"
+$Uri = "https://github.com/nicehash/ccminer-x11gost/releases/download/ccminer-x11gost_windows/ccminer_x11gost.7z"
 
 $Commands = [PSCustomObject]@{
     #"bitcore" = "" #Bitcore
-    "blake2s" = "" #Blake2s
-    "blakecoin" = "" #Blakecoin
+    #"blake2s" = "" #Blake2s
+    #"blakecoin" = "" #Blakecoin
     #"vanilla" = "" #BlakeVanilla
     #"cryptonight" = "" #Cryptonight
     #"decred" = "" #Decred
@@ -15,22 +15,22 @@ $Commands = [PSCustomObject]@{
     #"groestl" = "" #Groestl
     #"hmq1725" = "" #hmq1725
     #"keccak" = "" #Keccak
-    "lbry" = "" #Lbry
-    "lyra2v2" = "" #Lyra2RE2
+    #"lbry" = "" #Lbry
+    #"lyra2v2" = "" #Lyra2RE2
     #"lyra2z" = "" #Lyra2z
-    "myr-gr" = "" #MyriadGroestl
-    "neoscrypt" = " -i 15" #NeoScrypt
-    "nist5" = "" #Nist5
+    #"myr-gr" = "" #MyriadGroestl
+    #"neoscrypt" = "" #NeoScrypt
+    #"nist5" = "" #Nist5
     #"pascal" = "" #Pascal
     #"qubit" = "" #Qubit
     #"scrypt" = "" #Scrypt
     #"sia" = "" #Sia
     "sib" = " -i 21" #Sib
-    "skein" = "" #Skein
+    #"skein" = "" #Skein
     #"timetravel" = "" #Timetravel
-    "c11" = " -i 21" #C11
+    #"x11" = "" #X11
     #"x11evo" = "" #X11evo
-    "x17" = " -i 21" #X17
+    #"x17" = "" #X17
     #"yescrypt" = "" #Yescrypt
 }
 

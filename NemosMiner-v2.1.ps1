@@ -10,17 +10,13 @@
     [Parameter(Mandatory=$false)]
     [String]$API_Key = "", 
     [Parameter(Mandatory=$false)]
-    [Int]$Interval = 60, #seconds before reading hash rate from miners
+    [Int]$Interval = 90, #seconds before reading hash rate from miners
     [Parameter(Mandatory=$false)]
     [String]$Location = "europe", #europe/us/asia
     [Parameter(Mandatory=$false)]
     [Switch]$SSL = $false, 
     [Parameter(Mandatory=$false)]
     [Array]$Type = $null, #AMD/NVIDIA/CPU
-    [Parameter(Mandatory=$false)]
-    [String]$SelGPUEWBF = "0",
-    [Parameter(Mandatory=$false)]
-    [String]$SelGPUCC = "0",
     [Parameter(Mandatory=$false)]
     [Array]$Algorithm = $null, #i.e. Ethash,Equihash,Cryptonight ect.
     [Parameter(Mandatory=$false)]
@@ -61,8 +57,8 @@ if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stat = Set-Stat $
 
 #Set donation parameters
 $LastDonated = (Get-Date).AddDays(-1).AddHours(1)
-$WalletDonate = "1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE"
-$UserNameDonate = "1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE"
+$WalletDonate = "38r8jc4Dt9CH89wAMiDfbGWdEawHc9ZN4j"
+$UserNameDonate = "38r8jc4Dt9CH89wAMiDfbGWdEawHc9ZN4j"
 $WorkerNameDonate = "NemosMiner-v2.1"
 $WalletBackup = $Wallet
 $UserNameBackup = $UserName
@@ -87,6 +83,9 @@ while($true)
         $LastDonated = Get-Date
     }
 
+    $Rates = [PSCustomObject]@{}
+    $Currency | ForEach {$Rates | Add-Member $_ (Invoke-WebRequest "https://api.cryptonator.com/api/ticker/btc-$_" -UseBasicParsing | ConvertFrom-Json).ticker.price}
+
     #Load the Stats
     $Stats = [PSCustomObject]@{}
     if(Test-Path "Stats"){Get-ChildItemContent "Stats" | ForEach {$Stats | Add-Member $_.Name $_.Content}}
@@ -96,7 +95,7 @@ while($true)
         Where Location -EQ $Location | 
         Where SSL -EQ $SSL | 
         Where {$PoolName.Count -eq 0 -or (Compare $PoolName $_.Name -IncludeEqual -ExcludeDifferent | Measure).Count -gt 0}}
-    if($AllPools.Count -eq 0){"No Pools!" | Out-Host; sleep 1; continue}
+    if($AllPools.Count -eq 0){"No Pools!" | Out-Host; sleep $Interval; continue}
     $Pools = [PSCustomObject]@{}
     $Pools_Comparison = [PSCustomObject]@{}
     $AllPools.Algorithm | Select -Unique | ForEach {$Pools | Add-Member $_ ($AllPools | Where Algorithm -EQ $_ | Sort Price -Descending | Select -First 1)}

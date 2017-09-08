@@ -1,1 +1,3 @@
-del "Stats\*Profit.txt"
+del "Stats"
+
+

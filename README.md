@@ -1,14 +1,16 @@
-# NemosMiner-v2.2
-NemosMiner-v2.2 Monitors mining pools in real-time in order to find the most profitable Algo /
- Auto Benchmarks Each algo to get optimal speeds / 
-Fully automated / 
-Auto Downloads Miners
+# NemosMiner-v2.0-Zpool
+Fork from the excellent work at nemosMiner; fixed some various issues and added new ccminer into base for auto-download
 
-thankyou to aaronsace for devoloping and maintaining "MultiPoolMiner"
-this is a free project feel free to donate be much appreciated:
+Basic use:
+unzip and edit start.bat
+Add in your bitcoin address:
+powershell -version 5.0 -noexit -executionpolicy bypass -windowstyle maximized -command "&.\NemosMiner-v2.1.ps1 -Currency BTC -interval 120 -Wallet 38r8jc4Dt9CH89wAMiDfbGWdEawHc9ZN4j -Location US -PoolName zpool -Type nvidia -Algorithm keccak,skunk,jha,tribus,c11,x11evo,lbry,skein,equihash,groestl,timetravel,sib,bitcore,hmq1725,x17,blakecoin,Nist5,MyriadGroestl,Lyra2RE2,neoscrypt,blake2s -Donate 1
 
-aaronsace = 1MsrCoAt8qM53HUMsUxvy9gMj3QVbHLazH
+To reset benchmarks:
+ResetBenchmark.bat
 
-nemo = 1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE
+Reset profit stats:
+ResetProfit.bat
 
-
+Reset all to look like a new install:
+ResetAll.bat
