@@ -1,4 +1,3 @@
-del "Stats"
-del "Bin"
-del "Logs"
-
+del /F /Q "Stats"
+del /F /Q "Bin"
+del /F /Q "Logs"

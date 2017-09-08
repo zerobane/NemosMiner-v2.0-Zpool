@@ -1,1 +1,1 @@
-del "Stats\*_HashRate.txt"
+del /F /Q "Stats\*_HashRate.txt"
