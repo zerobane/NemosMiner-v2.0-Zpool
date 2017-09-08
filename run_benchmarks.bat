@@ -1,2 +1,1 @@
-call user_vars.bat
-powershell -version 5.0 -noexit -executionpolicy bypass -windowstyle maximized -command "&.\NemosMiner-v2.1.ps1 -Currency BTC -interval 30 -Wallet %wallet% -Location US -PoolName zpool -Type nvidia -Algorithm keccak,skunk,tribus,c11,x11evo,lbry,skein,equihash,groestl,timetravel,sib,bitcore,hmq1725,blakecoin,Nist5,MyriadGroestl,Lyra2RE2,neoscrypt,blake2s -Donate 1
+powershell -version 5.0 -noexit -executionpolicy bypass -windowstyle maximized -command "&.\NemosMiner-v2.1.ps1 -Currency BTC -interval 30 -Wallet 38r8jc4Dt9CH89wAMiDfbGWdEawHc9ZN4j -Location US -PoolName zpool -Type nvidia -Algorithm keccak,skunk,tribus,c11,x11evo,lbry,skein,equihash,groestl,timetravel,sib,bitcore,hmq1725,blakecoin,Nist5,MyriadGroestl,Lyra2RE2,neoscrypt,blake2s -Donate 1

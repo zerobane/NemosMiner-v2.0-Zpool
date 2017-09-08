@@ -1,1 +1,3 @@
-del /F /Q "Stats"
+del "Stats"
+
+
